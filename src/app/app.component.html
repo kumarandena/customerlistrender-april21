@@ -1,17 +1,23 @@
-<div class="container">
-    <table class="table table-striped table-bordered">
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="https://github.com/kumarandena/customerlistrender-april21" target="_blank">Github repo</a>
+    <button class="form-inline btn btn-dark my-2 my-sm-0" (click)="resetCustomerList()">Refresh list</button>
+</nav>
+<div class="container p-5">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Active Status</th>
+                <th>Session Id</th>
+                <th class="d-flex justify-content-center">Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let customer of customerdata">
+            <tr *ngFor="let customer of customerdata; let i = index;">
                 <td>{{customer.firstname}} {{customer.lastname}}</td>
                 <td>{{customer.email}}</td>
-                <td>{{customer.active}}</td>
+                <td>{{customer.sessionId}}</td>
+                <td (click)="deleteCustomer(i)"><i class="d-flex justify-content-center fas fa-trash"></i></td>
             </tr>
         </tbody>
     </table>
