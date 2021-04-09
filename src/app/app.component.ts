@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'customerlistrender-april21';
+export class AppComponent implements OnInit{
 
   customerdata = [
     {
@@ -21,15 +20,15 @@ export class AppComponent {
         "doubleOptinConfirmDate":"2011-11-23T12:00:00+0100",
         "doubleOptinEmailSentDate":"2011-11-23T00:00:00+0100",
         "doubleOptinRegister":true,
-        "email":"test@example.com",
+        "email":"michuan@example.com",
         "salutation": "mr",
-        "firstname": "Max",
-        "lastname": "Mustermann",
+        "firstname": "Mic",
+        "lastname": "Huan",
         "firstLogin":"2011-11-23T00:00:00+0100",
         "lastLogin":"2012-01-04T14:12:05+0100",
         "accountMode":0,
         "confirmationKey":"",
-        "sessionId":"uiorqd755gaar8dn89ukp178c7",
+        "sessionId":"uiorqd755gaar8sn89ukp178c7",
         "newsletter":0,
         "validation":"",
         "affiliate":0,
@@ -52,15 +51,15 @@ export class AppComponent {
         "doubleOptinConfirmDate":null,
         "doubleOptinEmailSentDate":null,
         "doubleOptinRegister":false,
-        "email":"mustermann@b2b.com",
+        "email":"kumarandena@b2b.com",
         "salutation": "mr",
-        "firstname": "Max",
-        "lastname": "Mustermann",
+        "firstname": "Kumaran",
+        "lastname": "Dena",
         "firstLogin":"2012-08-30T00:00:00+0200",
         "lastLogin":"2012-08-30T11:43:17+0200",
         "accountMode":0,
         "confirmationKey":"",
-        "sessionId":"66e9b10064a19b1fcf6eb9310c0753866c764836",
+        "sessionId":"uiorqd755gaar8sn89ukp178d6",
         "newsletter":0,
         "validation":"0",
         "affiliate":0,
@@ -83,15 +82,15 @@ export class AppComponent {
       "doubleOptinConfirmDate":"2011-11-23T12:00:00+0100",
       "doubleOptinEmailSentDate":"2011-11-23T00:00:00+0100",
       "doubleOptinRegister":true,
-      "email":"test@example.com",
+      "email":"williamjohn@example.com",
       "salutation": "mr",
-      "firstname": "Max",
-      "lastname": "Mustermann",
+      "firstname": "William",
+      "lastname": "John",
       "firstLogin":"2011-11-23T00:00:00+0100",
       "lastLogin":"2012-01-04T14:12:05+0100",
       "accountMode":0,
       "confirmationKey":"",
-      "sessionId":"uiorqd755gaar8dn89ukp178c7",
+      "sessionId":"uiorqd755gcar8dn89ukp178c8",
       "newsletter":0,
       "validation":"",
       "affiliate":0,
@@ -114,15 +113,15 @@ export class AppComponent {
       "doubleOptinConfirmDate":null,
       "doubleOptinEmailSentDate":null,
       "doubleOptinRegister":false,
-      "email":"mustermann@b2b.com",
+      "email":"pavlo@b2b.com",
       "salutation": "mr",
-      "firstname": "Max",
-      "lastname": "Mustermann",
+      "firstname": "Pavlo",
+      "lastname": "Figol",
       "firstLogin":"2012-08-30T00:00:00+0200",
       "lastLogin":"2012-08-30T11:43:17+0200",
       "accountMode":0,
       "confirmationKey":"",
-      "sessionId":"66e9b10064a19b1fcf6eb9310c0753866c764836",
+      "sessionId":"uiorqd755gaar8sn89ukp178j9",
       "newsletter":0,
       "validation":"0",
       "affiliate":0,
@@ -145,15 +144,15 @@ export class AppComponent {
     "doubleOptinConfirmDate":"2011-11-23T12:00:00+0100",
     "doubleOptinEmailSentDate":"2011-11-23T00:00:00+0100",
     "doubleOptinRegister":true,
-    "email":"test@example.com",
+    "email":"jenlooper@example.com",
     "salutation": "mr",
-    "firstname": "Max",
-    "lastname": "Mustermann",
+    "firstname": "Jen",
+    "lastname": "Looper",
     "firstLogin":"2011-11-23T00:00:00+0100",
     "lastLogin":"2012-01-04T14:12:05+0100",
     "accountMode":0,
     "confirmationKey":"",
-    "sessionId":"uiorqd755gaar8dn89ukp178c7",
+    "sessionId":"uiorqd755gadr8dn89ukp1dfd7",
     "newsletter":0,
     "validation":"",
     "affiliate":0,
@@ -176,15 +175,15 @@ export class AppComponent {
     "doubleOptinConfirmDate":null,
     "doubleOptinEmailSentDate":null,
     "doubleOptinRegister":false,
-    "email":"mustermann@b2b.com",
+    "email":"anaines@b2b.com",
     "salutation": "mr",
-    "firstname": "Max",
-    "lastname": "Mustermann",
+    "firstname": "Ana",
+    "lastname": "Ines",
     "firstLogin":"2012-08-30T00:00:00+0200",
     "lastLogin":"2012-08-30T11:43:17+0200",
     "accountMode":0,
     "confirmationKey":"",
-    "sessionId":"66e9b10064a19b1fcf6eb9310c0753866c764836",
+    "sessionId":"uiorqd755gaar8sn89ukp178wd",
     "newsletter":0,
     "validation":"0",
     "affiliate":0,
@@ -196,5 +195,20 @@ export class AppComponent {
     "lockedUntil":null
 }
 ]
+customerdataClone: any;
+
+constructor() {}
+
+ngOnInit() {
+  this.customerdataClone = [...this.customerdata];
+}
+
+resetCustomerList() {
+  this.customerdata = [...this.customerdataClone];
+}
+
+deleteCustomer(index: number) {
+  this.customerdata.splice(index, 1);
+}
 
 }
