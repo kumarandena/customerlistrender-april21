@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/customerlistrender-april21",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
