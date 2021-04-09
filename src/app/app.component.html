@@ -1,11 +1,13 @@
 <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="https://github.com/kumarandena/customerlistrender-april21" target="_blank">Github repo</a>
+    <a class="navbar-brand" href="https://github.com/kumarandena/customerlistrender-april21" target="_blank">Github
+        repo</a>
     <button class="form-inline btn btn-dark my-2 my-sm-0" (click)="resetCustomerList()">Refresh list</button>
 </nav>
 <div class="container p-5">
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Session Id</th>
@@ -13,12 +15,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let customer of customerdata; let i = index;">
-                <td>{{customer.firstname}} {{customer.lastname}}</td>
-                <td>{{customer.email}}</td>
-                <td>{{customer.sessionId}}</td>
-                <td (click)="deleteCustomer(i)"><i class="d-flex justify-content-center fas fa-trash"></i></td>
-            </tr>
+            <ng-container *ngIf="customerdata.length > 0; else noData">
+                <tr *ngFor="let customer of customerdata; let i = index;">
+                    <td>{{customer.id}}</td>
+                    <td>{{customer.firstname}} {{customer.lastname}}</td>
+                    <td>{{customer.email}}</td>
+                    <td>{{customer.sessionId}}</td>
+                    <td (click)="deleteCustomer(i)"><i class="d-flex justify-content-center fas fa-trash"></i></td>
+                </tr>
+            </ng-container>
+            <ng-template #noData>
+                <tr>
+                    <td colspan="5" class="text-center">No records found! <span (click)="resetCustomerList()" class="refresh-list">Click here to refresh list.</span></td>
+                </tr>
+            </ng-template>
         </tbody>
     </table>
 </div>
